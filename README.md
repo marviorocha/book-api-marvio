@@ -5,7 +5,8 @@
 
 This is a simple API of Book with
 
-For Run the exemple this RestFULL follow the button below:
+### Run this exemple the RestFULL in insomnia follow the button below:
+
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Api-Book&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmarviorocha%2Fbook-api-marvio%2Fmain%2Fpublic%2Fapi-book-Insomnia_2021-08-15.json)
 
 ### Gems included:
@@ -21,16 +22,16 @@ For Run the exemple this RestFULL follow the button below:
 
 ### Books
 
-Book List [api/v1/book](https://api-book-marvio.herokuapp.com/api/v1/book)
-Book Show [api/v1/book/:id](https://api-book-marvio.herokuapp.com/api/v1/book/1)
-Book Create [api/v1/book](https://api-book-marvio.herokuapp.com/api/v1/book)
-Book Update [api/v1/book/:id](https://api-book-marvio.herokuapp.com/api/v1/book/1)
-Book Delete [api/v1/book/:id](https://api-book-marvio.herokuapp.com/api/v1/book/)
+- Book List `api/v1/book` [List book](https://api-book-marvio.herokuapp.com/api/v1/book)
+- Book Show `api/v1/book/:id` [Show book](https://api-book-marvio.herokuapp.com/api/v1/book/1)
+- Book Create `api/v1/book` [Book create](https://api-book-marvio.herokuapp.com/api/v1/book)
+- Book Update `api/v1/book/:id` [Update book](https://api-book-marvio.herokuapp.com/api/v1/book/1)
+- Book Delete `api/v1/book/:id` [Delete book](https://api-book-marvio.herokuapp.com/api/v1/book/)
 
 ### Author
 
-Book List [api/v1/author](https://api-book-marvio.herokuapp.com/api/v1/author)
-Book Show [api/v1/author/:id](https://api-book-marvio.herokuapp.com/api/v1/author/1)
-Book Create [api/v1/author](https://api-book-marvio.herokuapp.com/api/v1/author)
-Book Update [api/v1/author/:id](https://api-book-marvio.herokuapp.com/api/v1/author/1)
-Book Delete [api/v1/author/:id](https://api-book-marvio.herokuapp.com/api/v1/author/)
+- Book List `api/v1/author` [List author](https://api-book-marvio.herokuapp.com/api/v1/author)
+- Book Show `api/v1/author/:id` [Author show](https://api-book-marvio.herokuapp.com/api/v1/author/1)
+- Book Create `api/v1/author` [Create author](https://api-book-marvio.herokuapp.com/api/v1/author)
+- Book Update `api/v1/author/:id` [Author update](https://api-book-marvio.herokuapp.com/api/v1/author/1)
+- Book Delete `api/v1/author/:id` [Author delete](https://api-book-marvio.herokuapp.com/api/v1/author/)
