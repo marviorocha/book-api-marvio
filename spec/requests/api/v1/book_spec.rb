@@ -24,10 +24,9 @@ RSpec.describe "Api::V1::Books", type: :request do
       post api_v1_book_index_path, params: {book: book_params}, headers: headers
  
       expect(response.body).to include_json( 
-          title: book_params.fetch(:title),
-          author: { first_name: author.first_name }  
+          title: book_params.fetch(:title)  
        )
-      
+          
     end
 
     it '#Show /api/v1/book/:id' do 
@@ -46,7 +45,7 @@ RSpec.describe "Api::V1::Books", type: :request do
 
        expect(response.body).to include_json( 
            title: book_params.fetch(:title),
-           author: { first_name: author.first_name }  
+            
         )
 
     end
