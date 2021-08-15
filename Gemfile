@@ -11,6 +11,7 @@ gem 'puma', '~> 5.0'
  
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem "active_model_serializers", "~> 0.10.12"
  
 
 group :development, :test do
@@ -19,6 +20,9 @@ group :development, :test do
   gem "rspec-rails", "~> 5.0"
   gem "simplecov", "~> 0.21.2"
   gem "rspec", "~> 3.10"
+  gem "shoulda-matchers", "~> 5.0"
+  gem "rspec-json_expectations", "~> 2.2"
+
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
@@ -29,4 +33,7 @@ end
 
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
 
