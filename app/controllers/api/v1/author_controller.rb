@@ -1,54 +1,53 @@
-class Api::V1::AuthorController < ApplicationController
+# frozen_string_literal: true
 
-    before_action :set_author, only: [:show, :update, :destroy]
-    
-    def index
+module Api
+  module V1
+    class AuthorController < ApplicationController
+      before_action :set_author, only: %i[show update destroy]
+
+      def index
         @authors = Author.all
-        render :json => @authors, :status => :ok
-    end
+        render json: @authors, status: :ok
+      end
 
-    def create
-        
+      def create
         @author = Author.new(author_params)
-        
         if @author.save
-            render json: @author, status: :created, location: api_v1_author_index_path
+          render json: @author, status: :created, location: api_v1_author_index_path
         else
-            render json: @author.errors.full_messages, status: :unprocessable_entity
-        end       
-    end
+          render json: @author.errors.full_messages, status: :unprocessable_entity
+        end
+      end
 
-    def update
-        
+      def update
         if @author.update(author_params)
-            render json: @author, :status => :ok
+          render json: @author, status: :ok
         else
-            render json: @author.errors.full_messages, status: :unprocessable_entity
+          render json: @author.errors.full_messages, status: :unprocessable_entity
         end
+      end
 
-    end
+      def show
+        render json: @author, status: :ok
+      end
 
-    def show
-        render json: @author, :status => :ok
-    end
-
-    def destroy
-        
+      def destroy
         if @author.destroy
-            render json: @author, :status => :no_content
+          render json: @author, status: :no_content
         else
-            render json: @author.errors.full_messages, status: :bad_request
+          render json: @author.errors.full_messages, status: :bad_request
         end
-    end
+      end
 
-    private
+      private
 
-    def set_author
+      def set_author
         @author = Author.find(params[:id])
-    end
+      end
 
-    def author_params
+      def author_params
         params.require(:author).permit(:first_name, :last_name, :age, :subject)
+      end
     end
-
+  end
 end

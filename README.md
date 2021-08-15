@@ -1,4 +1,5 @@
 <a href="https://codeclimate.com/github/marviorocha/book-api-marvio/maintainability"><img src="https://api.codeclimate.com/v1/badges/94bef2669aa5e601473d/maintainability" /></a>
+[![Working](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
 # Book API Rails by Marvio
 

@@ -22,8 +22,9 @@ group :development, :test do
   gem "rspec", "~> 3.10"
   gem "shoulda-matchers", "~> 5.0"
   gem "rspec-json_expectations", "~> 2.2"
-
+  gem 'rubocop', require: false
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec_api_documentation"
 end
 
 group :development do
@@ -33,6 +34,7 @@ end
 
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 
 
 
