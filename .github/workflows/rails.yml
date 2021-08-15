@@ -1,63 +1,44 @@
-name: Rails
-on: push
-
+name: RSpec CI
+on: [push, pull_request]
 jobs:
-  verify:
-    name: Build
+  rspec:
     runs-on: ubuntu-latest
-
     services:
       postgres:
         image: postgres:11
+        ports:
+          - 5432:5432
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: book_api_marvio_test
           POSTGRES_PASSWORD: admin123
-        ports: ["5432:5432"]
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-      # if you need redis
-      # redis:
-      #   image: redis
-      #   ports:
-      #   - 6379:6379
-      #   options: --entrypoint redis-server
-
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - uses: actions/checkout@v1
-      - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+
+      - uses: actions/setup-ruby@v1
         with:
-          ruby-version: 2.6.x
-      - name: Set up Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.13.0
-      - name: Install dependencies
+          ruby-version: 2.7.2
+
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
+
+      - name: Bundle install
         run: |
-          sudo apt-get -yqq install libpq-dev build-essential libcurl4-openssl-dev
           gem install bundler
           bundle install --jobs 4 --retry 3
-          yarn install
-      - name: Setup test database
-        env:
-          RAILS_ENV: test
-          PGHOST: localhost
-          POSTGRES_DB: book_api_marvio_test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: admin123
+      - name: Setup Database
         run: |
-          cp config/database.ci.yml config/database.yml
-          rake db:create db:migrate
-      - name: Run tests
+          cp config/database.yml.github-actions config/database.yml
+          bundle exec rake db:create
+          bundle exec rake db:schema:load
         env:
-          PGHOST: localhost
-          POSTGRES_DB: book_api_marvio_test
+          RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: admin123
-          PGPORT: ${{ job.services.postgres.ports[5432] }}
+
+      - name: Run RSpec
+        run: COVERAGE=true bundle exec rspec  --require rails_helper
+        env:
           RAILS_ENV: test
-        run: rspec
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: admin123
