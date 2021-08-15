@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 class Author < ApplicationRecord
-    has_many :books, dependent: :destroy
-    validates :first_name, :last_name, :age, presence: true
+  has_many :books, dependent: :destroy
+  validates :first_name, :last_name, :age, presence: true
 end
