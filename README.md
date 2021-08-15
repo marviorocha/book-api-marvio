@@ -1,6 +1,8 @@
+<a href="https://codeclimate.com/github/marviorocha/book-api-marvio/maintainability"><img src="https://api.codeclimate.com/v1/badges/94bef2669aa5e601473d/maintainability" /></a>
+
 # Book API Rails by Marvio
 
-This is a simple API of Book with 
+This is a simple API of Book with
 
 ### Gems included:
 
